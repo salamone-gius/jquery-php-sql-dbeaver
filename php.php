@@ -5,6 +5,19 @@
 
     // posso salvare le informazioni ottenute tramite la funzione $_GET all'interno di una variabile e riutilizzare la variabile nell'HTML
     $nationality = $_GET["nationality"];
+
+    // vediamo alcuni metodi per le stringhe
+    // inizializzo una variabile come stringa
+    $text = "Ciao, come stai?";
+
+    // la funzione explode() restituisce un array di due elementi esplodendo per il carattere indicato: fissiamo il delimitatore come primo argomento e la stringa da esplodere come secondo argomento
+    $array = explode(',', $text);
+
+    // per vedere il contenuto di una variabile solo in fase di debug, utilizzo la funzione var_dump
+    var_dump($array);
+
+    // la funzione str_replace restituisce una nuova stringa ($modified_text) modificandone una già esistente ($text)
+    $modified_text = str_replace('Ciao', 'Buondì', $text);
 ?>
 
 
@@ -50,6 +63,23 @@
         <!-- nell'url, dopo il nome della pagina (in questo caso php.php), aggiungo a "?name=Ciccio" "&nationality=italiano" -->
         <p>Sono <?php echo $nationality;?>.</p>
 
+        <h3>Esempi di stampa attraverso metodi php per le stringhe</h3>
 
+        <!-- stampo il valore della variabile $text -->
+        <p>$text = <?php echo $text;?></p>
+
+        <!-- stampo la lunghezza della stringa $text attraverso la funzione strlen -->
+        <p>La stringa "$text" è lunga <?php echo strlen($text);?> caratteri (spazi compresi).</p>
+
+        <!-- stampo il valore della variabile $array indicando l'indice dell'elemento che voglio stampare (echo non stampa array) -->
+        <p>$array = <?php echo $array[0]; echo $array[1];?></p>
+
+        <!-- stampo la stringa $modified_text ottenuta attraverso str_replace sulla stringa $text -->
+        <p>$modified_text = <?php echo $modified_text;?></p>
+
+        <!-- stampo la lunghezza della stringa $modified_text attraverso la funzione strlen -->
+        <p>La stringa "$modified_text" è lunga <?php echo strlen($modified_text);?> caratteri (spazi compresi, ne conta uno in più perché c'è la i accentata).</p>
+
+        
     </body>
 </html>

@@ -2,6 +2,9 @@
 <?php
     $name = "Giuseppe";
     $surname = "Salamone";
+
+    // posso salvare le informazioni ottenute tramite la funzione $_GET all'interno di una variabile e riutilizzare la variabile nell'HTML
+    $nationality = $_GET["nationality"];
 ?>
 
 
@@ -40,7 +43,12 @@
         <!-- La funzione echo STAMPA $variabili, 'stringhe di testo' o integer -->
         <p>Ciao, mi chiamo <?php echo $name; echo ' '; echo $surname; ?> ed ho <?php echo 35; ?> anni.</p>
 
-
+        <!-- per far sì che vengano stampate informazioni prese dal server in maniera dinamica, si utilizza la funzione $_GET["chiave"] -->
+        <!-- nell'url, dopo il nome della pagina (in questo caso php.php), aggiungo "?name=Ciccio". Il client stamperà il VALORE della CHIAVE "name" -->
+        <p>Il nome che passo attraverso l'url è: <?php echo $_GET["name"];?>.</p>
+        
+        <!-- nell'url, dopo il nome della pagina (in questo caso php.php), aggiungo a "?name=Ciccio" "&nationality=italiano" -->
+        <p>Sono <?php echo $nationality;?>.</p>
 
 
     </body>
